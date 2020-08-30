@@ -66,12 +66,8 @@ AddEventHandler('esx_billing:sendBill', function(target, sharedAccountName, labe
 				end
 			end)
 		else
-			print(
-				string.format(
-					"^2%s^7 -> [^1%s^7] ^1%s^7 has attempted to send a bill to [^5%s^7] ^5%s^7 from the ^2%s^7 via the society but, the player was not in the society job.",
-					GetCurrentResourceName(), src, GetPlayerName(src), tgt, GetPlayerName(tgt), society.name
-				)
-			)
+			print(string.format("^2%s^7 -> [^1%s^7] ^1%s^7 has attempted to send a bill to [^5%s^7] ^5%s^7 from the ^2%s^7 via the society but, the player was not in the society job.",GetCurrentResourceName(), src, GetPlayerName(src), tgt, GetPlayerName(tgt), society.name))
+            xPlayer.kick(_U('exploit_attempted_kick_message'))
 		end
 	end
 end)
